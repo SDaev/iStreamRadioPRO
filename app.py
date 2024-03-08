@@ -1,11 +1,17 @@
 from flask import Flask, render_template
-import os
+import sqlite3
 
 app = Flask(__name__)
 
+db = "istreamradio.sqlite"
+
+con = sqlite3.connect(db)
+c = con.cursor()
+con.close()
+
 
 @app.route("/")
-def hello_world():
+def index():
     return render_template("index.html")
 
 
