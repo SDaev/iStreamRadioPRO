@@ -1,1 +1,10 @@
 {% extends "base.html" %}
+
+{% block content%}
+{% for radio in radiok %}
+<p>{{ radio['name'] }}</p>
+<p>{{ radio['frequency'] }}</p>
+<p>{{ radio['description'] }}</p>
+<img src="data:image/png;base64,{{ radio['logo'] }}" alt="cuc" title="cuc" />
+{% endfor %}
+{% endblock %}
