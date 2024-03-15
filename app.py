@@ -10,21 +10,26 @@ con = sqlite3.connect(db)
 c = con.cursor()
 con.close()
 
+nowplaying = 0
+
 
 @app.route("/")
 def index():
     con = sqlite3.connect(db)
     c = con.cursor()
 
+    nowplaying == 0
     radiok = []
     for r in c.execute("select * from radiok"):
-        logo_bytes = bytes.fromhex(r[3])
-        logo_b64 = base64.b64encode(logo_bytes).decode()
-        radiok.append(
-            {"name": r[0], "frequency": r[1], "description": r[2], "logo": logo_b64}
-        )
+        radiok.append({"id": r[0], "name": r[1], "url": r[2], "logo": r[3]})
     con.close()
     return render_template("index.html", radiok=radiok)
+
+
+@app.route("/<int:id>", methods=["POST"])
+def play(id):
+    pass
+    nowplaying == id
 
 
 if __name__ == "__main__":

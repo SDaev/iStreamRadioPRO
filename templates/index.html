@@ -2,9 +2,12 @@
 
 {% block content%}
 {% for radio in radiok %}
+<p>{{ radio['id'] }}</p>
 <p>{{ radio['name'] }}</p>
-<p>{{ radio['frequency'] }}</p>
-<p>{{ radio['description'] }}</p>
-<img src="data:image/png;base64,{{ radio['logo'] }}" alt="cuc" title="cuc" />
+<p>{{ radio['url'] }}</p>
+<img src="data:image/png;base64,{{ radio['logo_thumbnail'] }}" alt="cuc" title="cuc" />
+<img src="data:image/png;base64,{{ radio['logo_large'] }}" alt="cuc" title="cuc" />
 {% endfor %}
+{% endblock %}
+{% block lejatszo %}
 {% endblock %}
