@@ -1,13 +1,23 @@
 {% extends "base.html" %}
-
+{% block title %} {{ radio.name }} - {% endblock title %}
 {% block content%}
 {% for radio in radiok %}
-<p>{{ radio['id'] }}</p>
-<p>{{ radio['name'] }}</p>
-<p>{{ radio['url'] }}</p>
-<img src="data:image/png;base64,{{ radio['logo_thumbnail'] }}" alt="cuc" title="cuc" />
-<img src="data:image/png;base64,{{ radio['logo_large'] }}" alt="cuc" title="cuc" />
+<form action="/lejatszas/{{ radio.id }}" method="get">
+    <button type="submit" id="{{ radio.id }}">{{ radio['name'] }}
+        <img src="{{ radio.logo_thumbnail }}" alt="A(z) {{ radio.name }} logója kicsiben"
+            title="A(z) {{ radio.name }} logója kicsiben" />
+    </button>
+</form>
 {% endfor %}
 {% endblock %}
-{% block lejatszo %}
+
+{% block player %}
+<div id="radio-player">
+    {{ radio.name }}
+    <img src="{{ radio.logo_large }}" alt="{{ radio.name }}" title="{{ radio.name }}" />
+    <audio controls autoplay>
+        <source src="{{ radio.url }}">
+        Ez az eszköz nem támogatja a hanglejátszást.
+    </audio>
+</div>
 {% endblock %}
