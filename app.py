@@ -26,6 +26,8 @@ def index():
             }
         )
 
+    listahossz = len(radiok)
+
     c.execute("select * from radiok where id = 0")
     r = c.fetchone()
 
@@ -33,6 +35,7 @@ def index():
     return render_template(
         "index.html",
         radiok=radiok,
+        listahossz=listahossz,
         radio={
             "id": r[0],
             "name": r[1],
@@ -60,13 +63,17 @@ def lejatszas(id):
             }
         )
 
+    listahossz = len(radiok)
+
     c.execute("select * from radiok where id = ?", [id])
     r = c.fetchone()
 
     con.close()
+    print(listahossz)
     return render_template(
         "index.html",
         radiok=radiok,
+        listahossz=listahossz,
         radio={
             "id": r[0],
             "name": r[1],
