@@ -11,7 +11,14 @@
 		/>
 	</button>
 </form>
-{% endif %} {% endfor %} {% endblock %} {% block player %}
+{% endif %} {% endfor %}
+<nav>
+	<a class="item" href="/about">Attributions / About</a>
+	<a class="item" href="/about">Attributions / About</a>
+	<a class="item" href="/about">Attributions / About</a>
+	<a class="item" href="/about">Attributions / About</a>
+</nav>
+{% endblock %} {% block player %}
 <div id="radio-player">
 	{% if radio.id != 0 %} {{ radio.name }}
 	<img

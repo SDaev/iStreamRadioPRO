@@ -19,9 +19,9 @@ header {
 	position: fixed;
 	left: 0;
 	top: 0;
-	height: 80px;
+	height: 40px;
 	width: 100%;
-	background: linear-gradient(darkslategray 40px, gray);
+	background: linear-gradient(darkslategray, transparent);
 }
 
 .cim {
@@ -31,34 +31,29 @@ header {
 	width: 100%;
 	margin-top: 5px;
 	text-align: center;
+	text-decoration: none;
 	font-size: x-large;
 	font-family: "cimsor";
 	color: white;
 }
 
 nav {
+	background: linear-gradient(transparent, grey);
 	position: relative;
+	bottom: 0;
+	display: inline-flex;
 	width: 100vw;
-	top: 40px;
-	padding: 12px;
+	justify-content: space-evenly;
 }
 
-nav .item {
+.item {
+	display: flex;
 	color: white;
-	font-size: 14px;
 	text-decoration: none;
 	font-family: sans-serif;
-	height: 40px;
-	width: 150px;
-	padding: 12px;
-}
-
-nav img {
-	padding: 0;
-	margin: 0;
-	height: 32px;
-	margin-left: 5px;
-	float: right;
+	align-items: center;
+	justify-content: center;
+	padding: 11px;
 }
 
 .item:link {
@@ -75,17 +70,22 @@ nav img {
 }
 
 .item:active {
-	background: linear-gradient(transparent, black);
-	font-weight: bold;
-	font-size: 13.25px;
+	background: linear-gradient(black, transparent);
 }
 
 section {
 	position: absolute;
-	top: 80px;
+	top: 40px;
+}
+
+button {
+	margin: 5px;
+	display: flex;
 }
 
 footer {
 	position: fixed;
 	bottom: 0;
+	width: 100vw;
+	background-color: grey;
 }
