@@ -39,8 +39,8 @@ header {
 
 nav {
 	background: linear-gradient(transparent, grey);
-	position: relative;
-	bottom: 0;
+	position: fixed;
+	bottom: 40px;
 	display: inline-flex;
 	width: 100vw;
 	justify-content: space-evenly;
@@ -75,17 +75,25 @@ nav {
 
 section {
 	position: absolute;
+	display: flexbox;
 	top: 40px;
+	width: 100vw;
+	align-content: center;
+	justify-content: center;
 }
 
 button {
-	margin: 5px;
 	display: flex;
+	margin: 5px;
+	justify-content: center;
+	align-items: center;
+	width: 75%;
 }
 
 footer {
 	position: fixed;
 	bottom: 0;
+	height: 40px;
 	width: 100vw;
 	background-color: grey;
 }
