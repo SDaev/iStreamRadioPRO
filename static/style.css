@@ -13,12 +13,11 @@ body {
 	font-family: monospace;
 	background: black;
 	color: white;
+	width: 100vw;
 }
 
 header {
 	position: fixed;
-	left: 0;
-	top: 0;
 	height: 40px;
 	width: 100%;
 	background: linear-gradient(darkslategray, transparent);
@@ -40,10 +39,6 @@ header {
 nav {
 	background: linear-gradient(transparent, grey);
 	position: fixed;
-	bottom: 40px;
-	display: inline-flex;
-	width: 100vw;
-	justify-content: space-evenly;
 }
 
 .item {
@@ -73,27 +68,53 @@ nav {
 	background: linear-gradient(black, transparent);
 }
 
-section {
+.list {
 	position: absolute;
-	display: flexbox;
 	top: 40px;
-	width: 100vw;
-	align-content: center;
-	justify-content: center;
 }
 
-button {
+.list button {
 	display: flex;
-	margin: 5px;
 	justify-content: center;
 	align-items: center;
-	width: 75%;
+	width: fit-content;
+	margin: 5px;
 }
 
-footer {
-	position: fixed;
-	bottom: 0;
-	height: 40px;
-	width: 100vw;
+.player {
 	background-color: grey;
+}
+
+@media (min-aspect-ratio: 16/10) {
+	.list button {
+		width: 70vw;
+	}
+
+	.player {
+		position: fixed;
+		bottom: 0;
+		height: 40px;
+		width: 100vw;
+		background-color: grey;
+	}
+}
+
+@media (max-aspect-ratio: 16/10) {
+	.list button {
+		width: 99vw;
+	}
+
+	.player {
+		position: fixed;
+		bottom: 0;
+		height: 40px;
+		width: 100vw;
+		background-color: grey;
+	}
+	nav {
+		bottom: 40px;
+		display: inline-flex;
+		width: 100vw;
+		justify-content: space-evenly;
+	}
 }

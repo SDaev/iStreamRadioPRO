@@ -4,11 +4,8 @@
 <form action="/lejatszas/{{ radio.id }}" method="get">
 	<button type="submit" id="{{ radio.id }}">
 		{{ radio['name'] }}
-		<img
-			src="{{ radio.logo_thumbnail }}"
-			alt="A(z) {{ radio.name }} logója kicsiben"
-			title="A(z) {{ radio.name }} logója kicsiben"
-		/>
+		<img src="{{ radio.logo_thumbnail }}" alt="A(z) {{ radio.name }} logója kicsiben"
+			title="A(z) {{ radio.name }} logója kicsiben" />
 	</button>
 </form>
 {% endif %} {% endfor %}
@@ -19,19 +16,13 @@
 	<a class="item" href="/about">Attributions / About</a>
 </nav>
 {% endblock %} {% block player %}
-<div id="radio-player">
-	{% if radio.id != 0 %} {{ radio.name }}
-	<img
-		src="{{ radio.logo_large }}"
-		alt="{{ radio.name }}"
-		title="{{ radio.name }}"
-	/>
-	<audio controls autoplay>
-		<source src="{{ radio.url }}" />
-		Ez az eszköz nem támogatja a hanglejátszást.
-	</audio>
-	{% else %}
-	<span> </span>
-	{% endif %}
-</div>
+{% if radio.id != 0 %} {{ radio.name }}
+<img src="{{ radio.logo_large }}" alt="{{ radio.name }}" title="{{ radio.name }}" />
+<audio controls autoplay>
+	<source src="{{ radio.url }}" />
+	Ez az eszköz nem támogatja a hanglejátszást.
+</audio>
+{% else %}
+<span> </span>
+{% endif %}
 {% endblock %}
