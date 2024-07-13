@@ -13,7 +13,7 @@
 {% if radio.id > 0 %}
 <form action="/listen/{{ radio.id }}" method="get">
 	<button type="submit" id="{{ radio.id }}">
-		{{ radio.name }}
+		<span>{{ radio.name }}</span>
 		<img src="{{ radio.logo_thumbnail }}" alt="A(z) {{ radio.name }} logója kicsiben"
 			title="A(z) {{ radio.name }} logója kicsiben" />
 	</button>
@@ -25,20 +25,7 @@
 {% block player %}
 {% if nowPlaying != None %}
 {% for listen in nowPlaying %}
-<span>
-	{{ listen.name }}
-	<img src="
-	{{ listen.logo_thumbnail }}" alt="
-	{{ listen.name }}" title="
-	{{ listen.name }}" style="max-block-size: 64px;" />
-	<audio controls autoplay>
-		<source src="
-	{{ listen.url }}" />
-		Ez az eszköz nem támogatja a hanglejátszást.
-	</audio>
-</span>
-{% else %}
-<span>
+<span class="playing">
 	{{ listen.name }}
 	<img src="
 	{{ listen.logo_thumbnail }}" alt="
@@ -51,5 +38,21 @@
 	</audio>
 </span>
 {% endfor %}
+{% endif %}
+{% if nowPlaying == None %}
+<span class="stopped">
+
+	<div id="face">
+		¯\_(ツ)_/¯
+	</div>
+
+	<div id="tucsok">
+		<span>
+			Itt még a tücskök sem ciripelnek...<br>
+			Bökj meg egy rádiót a lejátszáshoz!
+		</span>
+	</div>
+
+</span>
 {% endif %}
 {% endblock %}

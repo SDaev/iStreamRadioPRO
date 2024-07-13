@@ -3,6 +3,12 @@
 	padding: 0;
 	text-decoration: none;
 	font-family: sans-serif;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+	display: none;
 }
 
 @font-face {
@@ -12,7 +18,6 @@
 }
 
 html {
-	font-family: monospace;
 	background: black;
 	color: white;
 	width: 100vw;
@@ -35,57 +40,92 @@ header .cim {
 	font-family: "cimsor";
 	color: white;
 }
-/*
-nav {
-	background: linear-gradient(transparent, grey);
-	position: absolute;
-	bottom: 0;
-	width: 100vw;
-	display: inline-flex;
-	justify-content: space-evenly;
-}
 
-.item {
-	display: flex;
-	color: white;
-	align-items: center;
-	justify-content: center;
-	padding: 11px;
-}
-
-.item:link {
-	background: linear-gradient(transparent, lightslategray);
-}
-
-.item:visited {
-	background: linear-gradient(transparent, lightslategray);
-}
-
-.item:hover {
-	background: linear-gradient(transparent, gray);
-	text-decoration: underline;
-}
-
-.item:active {
-	background: linear-gradient(black, transparent);
-}
-*/
-
-.list {
+section {
 	position: absolute;
 	top: 45px;
 	margin: 10px;
+	height: calc(100% - 55px);
+	overflow: hidden;
 }
 
 .list button {
+	color: white;
+	font-size: 16px;
+	background: transparent;
+	border: 2px solid white;
+	border-radius: 5px;
 }
 
-.list img {
-	max-width: 10%;
+.player {
+	background: darkcyan;
+}
+
+#face {
+	height: 55px;
+	float: left;
+	font-size: 32px;
+}
+
+@keyframes tucsok {
+	0% {
+		color: auto;
+	}
+
+	100% {
+		color: transparent;
+	}
+}
+
+#tucsok {
+	animation: tucsok 1s infinite linear alternate;
+	height: 55px;
+	float: right;
+	font-size: 16px;
 }
 
 @media (min-aspect-ratio: 16/10) {
 	/* pc mód */
+
+	section {
+		display: flex;
+		justify-content: space-between;
+		width: calc(100% - 20px);
+	}
+
+	.list {
+		margin-right: 10px;
+		width: 70vw;
+		overflow: auto;
+	}
+
+	.list img {
+		max-width: 50px;
+	}
+
+	.list button {
+		display: flex;
+		width: 100%;
+		margin-bottom: 10px;
+		align-items: center;
+	}
+
+	.list button span {
+		flex: 1;
+		text-align: left;
+		margin-left: 10px;
+	}
+
+	.list button img {
+		flex: 1;
+		text-align: right;
+		margin: 10px;
+	}
+
+	.player {
+		width: 30vw;
+		margin-bottom: 10px;
+	}
 }
 
 @media (max-aspect-ratio: 16/10) {
