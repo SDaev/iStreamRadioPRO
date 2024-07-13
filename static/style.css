@@ -20,15 +20,14 @@ html {
 
 header {
 	position: fixed;
+	top: 0;
 	height: 40px;
 	width: 100%;
 	background: linear-gradient(darkslategray, transparent);
 }
 
-.cim {
+header .cim {
 	position: absolute;
-	top: 0;
-	height: 40px;
 	width: 100%;
 	margin-top: 5px;
 	text-align: center;
@@ -44,7 +43,7 @@ nav {
 	width: 100vw;
 	display: inline-flex;
 	justify-content: space-evenly;
-}*/
+}
 
 .item {
 	display: flex;
@@ -70,10 +69,11 @@ nav {
 .item:active {
 	background: linear-gradient(black, transparent);
 }
+*/
 
 .list {
-	position: static;
-	top: 40px;
+	position: absolute;
+	top: 45px;
 	margin: 10px;
 }
 

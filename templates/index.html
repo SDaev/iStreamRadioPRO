@@ -1,27 +1,55 @@
-{% extends "base.html" %} {% block title %} {% if radio.id != 0 %} {{ radio.name
-}} - {% endif %} {% endblock title %} {% block content %} {% for radio in radiok
-%} {% if radio.id > 0 %}
-<form action="/lejatszas/{{ radio.id }}" method="get">
+{% extends "base.html" %}
+
+{% block title %}
+{% if nowPlaying != None %}
+{% for listen in nowPlaying %}
+{{ listen.name }} -
+{% endfor %}
+{% endif %}
+{% endblock title %}
+
+{% block content %}
+{% for radio in radioList %}
+{% if radio.id > 0 %}
+<form action="/listen/{{ radio.id }}" method="get">
 	<button type="submit" id="{{ radio.id }}">
-		{{ radio['name'] }}
-		<img
-			src="{{ radio.logo_thumbnail }}"
-			alt="A(z) {{ radio.name }} logója kicsiben"
-			title="A(z) {{ radio.name }} logója kicsiben"
-		/>
+		{{ radio.name }}
+		<img src="{{ radio.logo_thumbnail }}" alt="A(z) {{ radio.name }} logója kicsiben"
+			title="A(z) {{ radio.name }} logója kicsiben" />
 	</button>
 </form>
-{% endif %} {% endfor %} {% endblock %} {% block player %} {% if radio.id != 0
-%} {{ radio.name }}
-<img
-	src="{{ radio.logo_large }}"
-	alt="{{ radio.name }}"
-	title="{{ radio.name }}"
-/>
-<audio controls autoplay>
-	<source src="{{ radio.url }}" />
-	Ez az eszköz nem támogatja a hanglejátszást.
-</audio>
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block player %}
+{% if nowPlaying != None %}
+{% for listen in nowPlaying %}
+<span>
+	{{ listen.name }}
+	<img src="
+	{{ listen.logo_thumbnail }}" alt="
+	{{ listen.name }}" title="
+	{{ listen.name }}" style="max-block-size: 64px;" />
+	<audio controls autoplay>
+		<source src="
+	{{ listen.url }}" />
+		Ez az eszköz nem támogatja a hanglejátszást.
+	</audio>
+</span>
 {% else %}
-<span> </span>
-{% endif %} {% endblock %}
+<span>
+	{{ listen.name }}
+	<img src="
+	{{ listen.logo_thumbnail }}" alt="
+	{{ listen.name }}" title="
+	{{ listen.name }}" style="max-block-size: 64px;" />
+	<audio controls autoplay>
+		<source src="
+	{{ listen.url }}" />
+		Ez az eszköz nem támogatja a hanglejátszást.
+	</audio>
+</span>
+{% endfor %}
+{% endif %}
+{% endblock %}
