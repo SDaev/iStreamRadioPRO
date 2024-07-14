@@ -25,34 +25,36 @@
 {% block player %}
 {% if nowPlaying != None %}
 {% for listen in nowPlaying %}
-<span class="playing">
-	{{ listen.name }}
+<div id="playing">
+	<span>{{ listen.name }}</span>
 	<img src="
 	{{ listen.logo_thumbnail }}" alt="
 	{{ listen.name }}" title="
 	{{ listen.name }}" style="max-block-size: 64px;" />
-	<audio controls autoplay>
-		<source src="
-	{{ listen.url }}" />
-		Ez az eszköz nem támogatja a hanglejátszást.
-	</audio>
-</span>
+	<span>
+		<audio autoplay>
+			<source src="{{ listen.url }}" />
+			Ez az eszköz nem támogatja a hanglejátszást.
+		</audio>
+	</span>
+	<a href=""><img src="{{ url_for('static', filename='favicon.ico') }}" alt=""></a>
+</div>
 {% endfor %}
 {% endif %}
 {% if nowPlaying == None %}
-<span class="stopped">
+<div id="stopped">
 
-	<div id="face">
-		¯\_(ツ)_/¯
-	</div>
+	<span id="face">
+		<p>¯\_(ツ)_/¯</p>
+	</span>
 
-	<div id="tucsok">
-		<span>
+	<span id="tucsok">
+		<p>
 			Itt még a tücskök sem ciripelnek...<br>
 			Bökj meg egy rádiót a lejátszáshoz!
-		</span>
-	</div>
+		</p>
+	</span>
 
-</span>
+</div>
 {% endif %}
 {% endblock %}

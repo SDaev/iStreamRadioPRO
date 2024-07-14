@@ -62,7 +62,6 @@ def index():
 def listen(id):
     populateList()
     setPlayer(id)
-    # return jsonify(nowPlaying)
     return render_template("index.html", radioList=radioList, nowPlaying=nowPlaying)
 
 
