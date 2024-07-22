@@ -60,7 +60,6 @@ def index():
 
 @app.route("/listen/<int:id>")
 def listen(id):
-    populateList()
     setPlayer(id)
     return render_template("index.html", radioList=radioList, nowPlaying=nowPlaying)
 

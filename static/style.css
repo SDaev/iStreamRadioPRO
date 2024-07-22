@@ -1,3 +1,11 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@font-face {
+	font-family: "cimsor";
+	src: url("typeface/ethnocentric-regular.otf");
+	font-style: normal;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -9,12 +17,6 @@
 
 *::-webkit-scrollbar {
 	display: none;
-}
-
-@font-face {
-	font-family: "cimsor";
-	src: url("typeface/ethnocentric-regular.otf");
-	font-style: normal;
 }
 
 html {
@@ -83,6 +85,23 @@ section {
 	font-size: 16px;
 }
 
+.media-controls {
+	display: flex;
+	justify-content: center;
+}
+
+.media-controls button {
+	padding: 5px;
+	background: transparent;
+	border: none;
+	color: white;
+}
+
+.media-controls .bi {
+	display: inline-block;
+	font-size: auto;
+}
+
 @media (min-aspect-ratio: 16/10) {
 	/* pc mód */
 
@@ -124,18 +143,24 @@ section {
 	.player {
 		flex-direction: column;
 		align-items: center;
+		align-content: center;
+		justify-items: center;
 		justify-content: center;
 		width: 35vw;
 		margin-bottom: 10px;
 	}
 
-	#face,
-	#tucsok {
+	#stopped {
 		text-align: center;
 	}
 
-	#playing {
+	#playing * {
 		text-align: center;
+		margin: 5%;
+	}
+
+	#playing #logo {
+		width: 64px;
 	}
 }
 
