@@ -14,9 +14,8 @@ title %} {% block content %} {% for radio in radioList %} {% if radio.id > 0 %}
 {% endif %} {% endfor %} {% endblock %} {% block player %} {% if nowPlaying !=
 None %} {% for listen in nowPlaying %}
 <div id="playing">
-	<span id="nev">{{ listen.name }}</span>
-	<span id="logo-container"
-		><img
+	<div id="logo-container">
+		<img
 			id="logo"
 			src="
 	{{ listen.logo_thumbnail }}"
@@ -24,16 +23,16 @@ None %} {% for listen in nowPlaying %}
 	{{ listen.name }}"
 			title="
 	{{ listen.name }}"
-			style="max-block-size: 64px"
 		/>
-	</span>
-	<span id="audio-container">
+	</div>
+	<div id="name-container">{{ listen.name }}</div>
+	<div id="audio-container">
 		<audio autoplay>
 			<source src="{{ listen.url }}" />
 			Ez az eszköz nem támogatja a hanglejátszást.
 		</audio>
-	</span>
-	<span class="media-controls">
+	</div>
+	<div class="media-controls">
 		<form action="">
 			<button class="bi bi-skip-start-circle"></button>
 		</form>
@@ -43,15 +42,12 @@ None %} {% for listen in nowPlaying %}
 		<form action="">
 			<button class="bi bi-skip-end-circle"></button>
 		</form>
-	</span>
+	</div>
 </div>
 {% endfor %} {% endif %} {% if nowPlaying == None %}
 <div id="stopped">
-	<p id="face">¯\_(ツ)_/¯</p>
-
-	<p id="tucsok">
-		Itt még a tücskök sem ciripelnek...<br />
-		Bökj meg egy rádiót a lejátszáshoz!
-	</p>
+	<div id="face">¯\_(ツ)_/¯</div>
+	<div id="tucsok">Itt még a tücskök sem ciripelnek...</div>
+	<div id="tucsok">Bökj meg egy rádiót a lejátszáshoz!</div>
 </div>
 {% endif %} {% endblock %}

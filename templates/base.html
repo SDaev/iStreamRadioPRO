@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="hu">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %}{% endblock %}iStreamRadio</title>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style.css') }}"
+		/>
+		<link
+			rel="icon"
+			href="{{ url_for('static', filename='favicon.ico') }}"
+		/>
+	</head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>{% block title %}{% endblock %}iStreamRadio</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-	<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
-</head>
+	<body>
+		<header>
+			<a href="/" class="cim">iStreamRadio</a>
+		</header>
 
-<body>
-	<header>
-		<a href="/" class="cim">iStreamRadio</a>
-	</header>
+		<section>
+			<div class="list">{% block content%} {% endblock content %}</div>
 
-	<section>
-		<div class="list">
-			{% block content%} {% endblock content %}
-		</div>
-
-		<div class="player">
-			{% block player%} {% endblock player %}
-		</div>
-	</section>
-	<!--
+			<div class="player">{% block player%} {% endblock player %}</div>
+		</section>
+		<!--
 		<nav>
 			<a class="item" href="/about">Attributions / About</a>
 			<a class="item" href="/about">Attributions / About</a>
@@ -31,6 +32,5 @@
 			<a class="item" href="/about">Attributions / About</a>
 		</nav>
 		-->
-</body>
-
+	</body>
 </html>
