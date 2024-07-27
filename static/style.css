@@ -109,6 +109,11 @@ section {
 	font-size: var(--button-size);
 }
 
+.media-controls button:disabled {
+	color: gray;
+	cursor: default;
+}
+
 @media (min-aspect-ratio: 16/10) {
 	/* pc mód */
 

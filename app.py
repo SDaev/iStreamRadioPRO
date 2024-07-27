@@ -1,6 +1,6 @@
 import sqlite3
 
-from flask import Flask, render_template, url_for, json, jsonify
+from flask import Flask, render_template, url_for, json, jsonify, redirect
 
 app = Flask(__name__)
 
@@ -11,6 +11,7 @@ c = con.cursor()
 
 radioList = list()
 nowPlaying = list()
+radioListLenght = 0
 
 
 def populateList():
@@ -60,8 +61,29 @@ def index():
 
 @app.route("/listen/<int:id>")
 def listen(id):
+    populateList()
     setPlayer(id)
-    return render_template("index.html", radioList=radioList, nowPlaying=nowPlaying)
+    radioListLenght = len(radioList)
+    return render_template(
+        "index.html",
+        radioList=radioList,
+        nowPlaying=nowPlaying,
+        radioListLenght=radioListLenght,
+    )
+
+
+@app.route("/listen/<int:id>-1")
+def select_previous(id):
+    nowPlaying = id
+    newPlaybackId = nowPlaying - 1
+    return redirect(url_for("listen", id=newPlaybackId))
+
+
+@app.route("/listen/<int:id>+1")
+def select_next(id):
+    nowPlaying = id
+    newPlaybackId = nowPlaying + 1
+    return redirect(url_for("listen", id=newPlaybackId))
 
 
 if __name__ == "__main__":

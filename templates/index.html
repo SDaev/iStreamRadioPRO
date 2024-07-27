@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %} {% if nowPlaying != None %} {% for
 listen in nowPlaying %} {{ listen.name }} - {% endfor %} {% endif %} {% endblock
 title %} {% block content %} {% for radio in radioList %} {% if radio.id > 0 %}
-<form action="/listen/{{ radio.id }}" method="get">
+<form action="/listen/{{ radio.id }}">
 	<button type="submit" id="{{ radio.id }}">
 		<span>{{ radio.name }}</span>
 		<img
@@ -33,15 +33,28 @@ None %} {% for listen in nowPlaying %}
 		</audio>
 	</div>
 	<div class="media-controls">
-		<form action="">
+		{% if listen.id >= 1 %}
+		<form action="/listen/{{ listen.id }}-1">
 			<button class="bi bi-skip-start-circle"></button>
 		</form>
+		{% else %}
 		<form action="">
+			<button class="bi bi-skip-start-circle" disabled></button>
+		</form>
+		{% endif %}
+		<form action="/">
 			<button class="bi bi-stop-circle"></button>
 		</form>
-		<form action="">
+
+		{% if (listen.id + 2) <= radioListLenght %}
+		<form action="/listen/{{ listen.id }}+1">
 			<button class="bi bi-skip-end-circle"></button>
 		</form>
+		{% else %}
+		<form action="">
+			<button class="bi bi-skip-end-circle" disabled></button>
+		</form>
+		{% endif %}
 	</div>
 </div>
 {% endfor %} {% endif %} {% if nowPlaying == None %}
