@@ -8,7 +8,6 @@ db = "istreamradio.sqlite"
 con = sqlite3.connect(db)
 c = con.cursor()
 
-
 radioList = list()
 nowPlaying = list()
 radioListLenght = 0
@@ -53,15 +52,16 @@ def setPlayer(id):
     con.close()
 
 
+populateList()
+
+
 @app.route("/")
 def index():
-    populateList()
-    return render_template("index.html", radioList=radioList, nowPlaying=None)
+    return render_template("index.html", radioList=radioList, nowPlaying=nowPlaying)
 
 
 @app.route("/listen/<int:id>")
 def listen(id):
-    populateList()
     setPlayer(id)
     radioListLenght = len(radioList)
     return render_template(
