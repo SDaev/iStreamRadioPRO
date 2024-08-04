@@ -1,8 +1,11 @@
 import sqlite3
-
-from flask import Flask, render_template, url_for, json, jsonify, redirect
+from waitress import serve
+import logging
+from flask import Flask, render_template, request, url_for, json, jsonify, redirect
 
 app = Flask(__name__)
+
+logging.basicConfig(level=logging.DEBUG)
 
 db = "istreamradio.sqlite"
 con = sqlite3.connect(db)
@@ -55,9 +58,19 @@ def setPlayer(id):
 populateList()
 
 
+@app.before_request
+def log_request_info():
+    app.logger.info("Accessing endpoint: %s", request.path)
+
+
 @app.route("/")
 def index():
-    return render_template("index.html", radioList=radioList, nowPlaying=nowPlaying)
+    return render_template(
+        "index.html",
+        radioList=radioList,
+        nowPlaying=nowPlaying,
+        radioListLenght=radioListLenght,
+    )
 
 
 @app.route("/listen/<int:id>")
@@ -87,4 +100,4 @@ def select_next(id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0")
+    serve(app, listen="*:80")
