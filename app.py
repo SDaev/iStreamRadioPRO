@@ -68,7 +68,7 @@ def index():
     return render_template(
         "index.html",
         radioList=radioList,
-        nowPlaying=nowPlaying,
+        nowPlaying=None,
         radioListLenght=radioListLenght,
     )
 
