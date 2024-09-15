@@ -60,7 +60,7 @@ populateList()
 
 @app.before_request
 def log_request_info():
-    app.logger.info("Accessing endpoint: %s", request.path)
+    app.logger.info(request.path)
 
 
 @app.route("/")

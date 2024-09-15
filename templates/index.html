@@ -4,26 +4,15 @@ title %} {% block content %} {% for radio in radioList %}
 <form action="/listen/{{ radio.id }}">
 	<button type="submit" id="{{ radio.id }}">
 		<span>{{ radio.name }}</span>
-		<img
-			src="{{ radio.logo_thumbnail }}"
-			alt="A(z) {{ radio.name }} logója kicsiben"
-			title="A(z) {{ radio.name }} logója kicsiben"
-		/>
+		<img src="{{ radio.logo_thumbnail }}" alt="A(z) {{ radio.name }} logója kicsiben"
+			title="A(z) {{ radio.name }} logója kicsiben" />
 	</button>
 </form>
 {% endfor %} {% endblock %} {% block player %} {% if nowPlaying != None %} {%
 for listen in nowPlaying %}
 <div id="playing">
 	<div id="logo-container">
-		<img
-			id="logo"
-			src="
-	{{ listen.logo_thumbnail }}"
-			alt="
-	{{ listen.name }}"
-			title="
-	{{ listen.name }}"
-		/>
+		<img id="logo" src=" {{ listen.logo_thumbnail }}" alt="{{ listen.name }}" title="{{ listen.name }}" />
 	</div>
 	<div id="name-container">{{ listen.name }}</div>
 	<div id="audio-container">
@@ -46,21 +35,22 @@ for listen in nowPlaying %}
 			<button class="ph-duotone ph-stop-circle"></button>
 		</form>
 
-		{% if (listen.id + 2) <= radioListLenght %}
-		<form action="/listen/{{ listen.id }}+1">
+		{% if (listen.id + 2) <= radioListLenght %} <form action="/listen/{{ listen.id }}+1">
 			<button class="ph-duotone ph-skip-forward-circle"></button>
-		</form>
-		{% else %}
-		<form action="">
-			<button class="ph-duotone ph-skip-forward-circle" disabled></button>
-		</form>
-		{% endif %}
+			</form>
+			{% else %}
+			<form action="">
+				<button class="ph-duotone ph-skip-forward-circle" disabled></button>
+			</form>
+			{% endif %}
 	</div>
 </div>
 {% endfor %} {% endif %} {% if nowPlaying == None %}
 <div id="stopped">
 	<div id="face">¯\_(ツ)_/¯</div>
-	<div id="tucsok">Itt még a tücskök sem ciripelnek...</div>
-	<div id="tucsok">Bökj meg egy rádiót a lejátszáshoz!</div>
+	<div id="tucsok-group">
+		<div id="tucsok">Itt még a tücskök sem ciripelnek...</div>
+		<div id="tucsok">Bökj meg egy rádiót a lejátszáshoz!</div>
+	</div>
 </div>
 {% endif %} {% endblock %}
