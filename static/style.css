@@ -11,21 +11,18 @@
 	font-family: sans-serif;
 	scrollbar-width: none;
 }
-/*
+
 *::-webkit-scrollbar {
 	display: none;
-}
-
-* button:hover {
-	cursor: pointer;
 }
 
 html {
 	background: black;
 	color: white;
 	width: 100vw;
+	height: 100vh;
 }
-
+/*
 header {
 	position: fixed;
 	top: 0;
