@@ -1,3 +1,5 @@
+/*
+
 @font-face {
 	font-family: "cimsor";
 	src: url("typeface/ethnocentric-regular.otf");
@@ -113,7 +115,7 @@ section {
 }
 
 @media (min-aspect-ratio: 16/10) {
-	/* pc mód */
+	pc mód 
 
 	section {
 		display: flex;
@@ -169,7 +171,7 @@ section {
 }
 
 @media (max-aspect-ratio: 16/10) {
-	/* mobil mód*/
+	mobil mód
 
 	section {
 		display: flex;
@@ -222,3 +224,5 @@ section {
 		width: 10vw;
 	}
 }
+
+*/
