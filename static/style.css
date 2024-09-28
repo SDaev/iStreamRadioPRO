@@ -18,25 +18,22 @@ html {
 	width: 100vw;
 	height: 100vh;
 }
-/*
+
 header {
-	position: fixed;
-	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 40px;
-	width: 100%;
+	width: 100vw;
 	background: linear-gradient(darkslategray, transparent);
 }
 
-header .cim {
-	position: absolute;
-	width: 100%;
-	margin-top: 5px;
-	text-align: center;
+.cim {
 	font-size: x-large;
 	font-family: "cimsor";
 	color: white;
 }
-
+/*
 section {
 	position: absolute;
 	top: 45px;
