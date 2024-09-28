@@ -33,16 +33,13 @@ header {
 	font-family: "cimsor";
 	color: white;
 }
-/*
-section {
-	position: absolute;
-	top: 45px;
-	margin-left: 10px;
-	margin-right: 10px;
-	height: calc(100% - 45px);
-	overflow: hidden;
-}
 
+section {
+	margin: 10px;
+	height: calc(100vh - 60px);
+	overflow: scroll;
+}
+/*
 .list button {
 	color: white;
 	font-size: 16px;
