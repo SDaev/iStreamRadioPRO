@@ -42,68 +42,62 @@ section {
 }
 
 .list {
-	display: flex;
-	flex-direction: column;
-	width: 65vw;
-	height: calc(100vh - 50px);
-	margin: 0 5px 0 0;
-	overflow: scroll;
+		display: flex;
+		margin: 0 5px 0 0;
+		overflow: scroll;
 }
 
-.list * {
-	display: flex;
-	flex-direction: column;
-}
+	.list * {
+		display: flex;
+		flex-direction: column;
+	}
+
+
+	.list button {
+		display: flex;
+		align-items: center;
+		padding: 10px;
+		background: linear-gradient(#ffffff40, #ffffff0d);
+		color: white;
+		font-size: larger;
+		border: hidden;
+		border-radius: 8px;
+	}
+
+	.list form:not(:last-child) {
+		margin-bottom: 10px;
+	}
+
+@media screen and (min-aspect-ratio: 4/3) {
+	.list {
+		flex-direction: column;
+		width: 65vw;
+		height: calc(100vh - 50px);
+	}
 
 .list button {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px;
-	background: linear-gradient(#ffffff40, #ffffff0d);
-	color: white;
-	font-size: larger;
-	border: hidden;
-	border-radius: 8px;
+		flex-direction: row;
+		justify-content: space-between;
 }
 
-.list button img {
-	max-width: 64px;
-}
+	.list button img {
+		max-width: 64px;
+	}
 
-.list form:not(:last-child) {
-    margin-bottom: 10px;
-}
+	.player {
+		display: flex;
+		background: linear-gradient(#ffffff40, #ffffff0d);
+		color: white;
+		font-size: larger;
+		width: 35vw;
+		margin: 0 0 0 5px;
+		padding: 10px;
+		border-radius: 8px;
+	}
 
-.player {
-	display: flex;
-	flex-direction: column;
-	background: linear-gradient(#ffffff40, #ffffff0d);
-	color: white;
-	font-size: larger;
-	width: 35vw;
-	margin: 0 0 0 5px;
-	padding: 10px;
-	border-radius: 8px;
-}
-
-.player img {
-	max-width: 128px;
-}
-/*
-.list button {
-	color: white;
-	font-size: 16px;
-	background: linear-gradient(#ffffff40, #ffffff0d);
-	border-radius: 8px;
-}
-
-.player {
-	display: flex;
-	background: linear-gradient(#ffffff40, #ffffff0d);
-	border: 2px inset;
-	border-radius: 8px;
+	.player img {
+		max-width: 128px;
+	}
 }
 
 #face {
@@ -125,6 +119,7 @@ section {
 	font-size: 16px;
 }
 
+/*
 .media-controls {
 	display: flex;
 	justify-content: center;
