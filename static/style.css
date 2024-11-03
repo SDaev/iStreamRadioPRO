@@ -42,31 +42,41 @@ section {
 }
 
 .list {
-		display: flex;
-		margin: 0 5px 0 0;
-		overflow: scroll;
+	display: flex;
+	margin: 0 5px 0 0;
+	overflow: scroll;
 }
 
-	.list * {
-		display: flex;
-		flex-direction: column;
-	}
+.list * {
+	display: flex;
+	flex-direction: column;
+}
 
 
-	.list button {
-		display: flex;
-		align-items: center;
-		padding: 10px;
-		background: linear-gradient(#ffffff40, #ffffff0d);
-		color: white;
-		font-size: larger;
-		border: hidden;
-		border-radius: 8px;
-	}
+.list button {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	background: linear-gradient(#ffffff40, #ffffff0d);
+	color: white;
+	font-size: larger;
+	border: hidden;
+	border-radius: 8px;
+}
 
-	.list form:not(:last-child) {
-		margin-bottom: 10px;
-	}
+.list form:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.player {
+	display: flex;
+	background: linear-gradient(#ffffff40, #ffffff0d);
+	color: white;
+	font-size: larger;
+	width: 35vw;
+	margin: 0 0 0 5px;
+	border-radius: 8px;
+}
 
 @media screen and (min-aspect-ratio: 4/3) {
 	.list {
@@ -75,33 +85,34 @@ section {
 		height: calc(100vh - 50px);
 	}
 
-.list button {
+	.list button {
 		flex-direction: row;
 		justify-content: space-between;
-}
+	}
 
 	.list button img {
 		max-width: 64px;
 	}
 
-	.player {
-		display: flex;
-		background: linear-gradient(#ffffff40, #ffffff0d);
-		color: white;
-		font-size: larger;
-		width: 35vw;
-		margin: 0 0 0 5px;
-		padding: 10px;
-		border-radius: 8px;
+	.player img {
+		max-width: 14vw;
 	}
 
-	.player img {
-		max-width: 128px;
+	.player {
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		font-size: 2vw;
+	}
+
+	.player img,
+	.player name-container {
+		margin: 3vh;
 	}
 }
 
 #face {
-	font-size: 32px;
+	font-size: 3vw;
 }
 
 @keyframes tucsok {
@@ -114,30 +125,22 @@ section {
 	}
 }
 
-#tucsok {
+.tucsok {
 	animation: tucsok 1s infinite linear alternate;
-	font-size: 16px;
+	font-size: 1.5vw;
 }
 
-/*
 .media-controls {
-	display: flex;
+	display: inline-flex;
 	justify-content: center;
 }
 
 .media-controls button {
-	--button-size: 2vw;
-	padding: 5px;
 	background: transparent;
 	border: none;
 	color: white;
-	width: var(--button-size);
-	height: var(--button-size);
-}
-
-.media-controls .ph-duotone {
-	display: inline-block;
-	font-size: var(--button-size);
+	font-size: 3vw;
+	margin: 3vh;
 }
 
 .media-controls button:disabled {
@@ -145,6 +148,7 @@ section {
 	cursor: default;
 }
 
+/*
 @media (min-aspect-ratio: 16/10) {
 	pc mód 
 
