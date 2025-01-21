@@ -13,7 +13,7 @@
 }
 
 html {
-	background: black;
+	background: lightslategray;
 	color: white;
 	width: 100vw;
 	height: 100vh;
@@ -36,30 +36,25 @@ header {
 
 section {
 	display: flex;
-	height: calc(100vh - 50px);
+	height: calc(100dvh - 50px);
 	overflow: scroll;
 	margin: 0 10px 10px 10px;
 }
 
 .list {
 	display: flex;
-	margin: 0 5px 0 0;
+	flex-direction: column;
 	overflow: scroll;
 }
 
-.list * {
-	display: flex;
-	flex-direction: column;
-}
-
-
 .list button {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
+	justify-content: space-between;
 	padding: 10px;
 	background: linear-gradient(#ffffff40, #ffffff0d);
 	color: white;
-	font-size: larger;
 	border: hidden;
 	border-radius: 8px;
 }
@@ -72,50 +67,24 @@ section {
 	display: flex;
 	background: linear-gradient(#ffffff40, #ffffff0d);
 	color: white;
-	font-size: larger;
-	width: 35vw;
-	margin: 0 0 0 5px;
+	font-size: 2vw;
 	border-radius: 8px;
 }
 
-@media screen and (min-aspect-ratio: 4/3) {
-	.list {
-		flex-direction: column;
-		width: 65vw;
-		height: calc(100vh - 50px);
-	}
+.player img {
+	max-width: 14vw;
+}
 
-	.list button {
-		flex-direction: row;
-		justify-content: space-between;
-	}
-
-	.list button img {
-		max-width: 64px;
-	}
-
-	.player img {
-		max-width: 14vw;
-	}
-
-	.player {
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		font-size: 2vw;
-	}
-
-	.player img,
-	.player name-container {
-		margin: 3vh;
-	}
+.player img,
+.player name-container {
+	margin: 3vh;
 }
 
 #face {
 	font-size: 3vw;
 }
 
-@keyframes tucsok {
+@keyframes tucsok-blink {
 	0% {
 		color: auto;
 	}
@@ -126,8 +95,8 @@ section {
 }
 
 .tucsok {
-	animation: tucsok 1s infinite linear alternate;
-	font-size: 1.5vw;
+	animation: tucsok-blink 1s infinite linear alternate;
+	font-size: 2vw;
 }
 
 .media-controls {
@@ -148,116 +117,99 @@ section {
 	cursor: default;
 }
 
-/*
-@media (min-aspect-ratio: 16/10) {
-	pc mód 
-
-	section {
-		display: flex;
-		width: calc(100% - 20px);
-	}
+@media (orientation: landscape) {
+	/* pc mód */
 
 	.list {
-		margin-right: 10px;
 		width: 65vw;
-		overflow: auto;
-	}
-
-	.list img {
-		max-width: 48px;
+		height: calc(100vh - 50px);
 	}
 
 	.list button {
-		display: flex;
-		width: 100%;
-		margin-bottom: 10px;
-		align-items: center;
+		width: calc(100% - 10px);
+		font-size: 2vw;
 	}
 
-	.list button span {
-		flex: 1;
-		text-align: left;
-		margin-left: 10px;
-	}
-
-	.list button img {
-		flex: 1;
-		text-align: right;
-		margin: 10px;
+	.name-container {
+		font-size: 3vw;
 	}
 
 	.player {
-		--content-gap: 1vh;
-		align-items: center;
+		flex-direction: column;
 		justify-content: center;
 		text-align: center;
 		width: 35vw;
-		margin-bottom: 10px;
-		padding: 10px;
-	}
-
-	.player * {
-		margin: var(--content-gap);
-	}
-
-	#logo {
-		width: 10vw;
 	}
 }
 
-@media (max-aspect-ratio: 16/10) {
-	mobil mód
+@media (orientation: portrait) {
+	/* mobil mód */
 
 	section {
-		display: flex;
 		flex-direction: column;
 		width: calc(100vw - 20px);
 	}
 
 	.list {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
+		flex-direction: column;
 		align-items: center;
-		justify-content: space-evenly;
-		justify-self: center;
-		width: 100%;
-		height: calc(90vh - 45px);
-		overflow: auto;
-	}
-
-	.list img {
-		width: 10vw;
 	}
 
 	.list button {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		width: 40vw;
-		margin: 10px;
-		padding: 10px;
+		width: 70vw;
+	}
+
+	.list button img {
+		max-width: 6vh;
+	}
+
+	.name-container,
+	.logo,
+	.tucsok {
+		font-size: 2vh;
 	}
 
 	.player {
-		--content-gap: 1vh;
-		flex-direction: column;
+		margin: 10px 0 0;
+		flex-direction: row;
+		padding: 10px;
+		height: 10vw;
+		max-height: 10vw;
+	}
+
+	#stopped {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		width: calc(100vw - 20px);
 		align-items: center;
-		justify-content: center;
-		text-align: center;
-		width: calc(100% - 5px);
-		height: 10vh;
-		margin-top: 10px;
-		margin-bottom: 10px;
 	}
 
-	.player * {
-		margin: var(--content-gap);
+	@keyframes tucsok-slide {
+		0% {
+			color: auto;
+		}
+
+		100% {
+			color: transparent;
+		}
 	}
 
-	#logo {
-		width: 10vw;
+	.tucsok {
+		animation: tucsok-slide 1s infinite linear alternate;
+		text-wrap-mode: nowrap;
+		text-wrap: nowrap;
+	}
+
+	#playing {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: calc(100vw - 20px);
+		align-items: center;
+	}
+
+	#playing img {
+		max-height: 8vw;
 	}
 }
-
-*/
